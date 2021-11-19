@@ -29,6 +29,7 @@
 						value="${ board.regdate}" /></td>
 				<td><fmt:formatDate pattern="yyyy-MM-dd"
 						value="${ board.updateDate}" /></td>
+						테스트
 			</tr>
 		</c:forEach>
 	</table>
