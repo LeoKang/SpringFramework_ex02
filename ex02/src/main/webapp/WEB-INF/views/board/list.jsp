@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
@@ -25,11 +24,8 @@
 				<td><c:out value="${board.bno}" /></td>
 				<td><c:out value="${board.title}" /></td>
 				<td><c:out value="${board.writer}" /></td>
-				<td><fmt:formatDate pattern="yyyy-MM-dd"
-						value="${ board.regdate}" /></td>
-				<td><fmt:formatDate pattern="yyyy-MM-dd"
-						value="${ board.updateDate}" /></td>
-						테스트
+				<td><fmt:formatDate pattern="yyyy-MM-dd" value="${ board.regdate}" /></td>
+				<td><fmt:formatDate pattern="yyyy-MM-dd" value="${ board.updateDate}" /></td>
 			</tr>
 		</c:forEach>
 	</table>
