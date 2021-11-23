@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ include file="../includes/header.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +8,31 @@
 </head>
 <body>
 	<h1>List Page</h1>
+	<button id='regBtn' type="button">Register New Board</button>
+	<script type="text/javascript">
+		$(document)
+				.ready(
+						function() {
+							var result = '<c:out value="${result}"/>';
+							checkModal(result);
+							function checkModal(result) {
+								if (result === '') {
+									return;
+								}
+								if (parseInt(result) > 0) {
+									$(".modal-body").html(
+											"게시글 " + parseInt(result)
+													+ " 번이 등록되었습니다.");
+								}
+								<!--
+								$("#myModal").modal("show");
+								-->
+							}
+							$("#regBtn").on("click", function() {
+								self.location = "/controller/board/register";
+							});
+						});
+	</script>
 	<table>
 		<thead>
 			<tr>
@@ -22,7 +46,7 @@
 		<c:forEach items="${list}" var="board">
 			<tr>
 				<td><c:out value="${board.bno}" /></td>
-				<td><c:out value="${board.title}" /></td>
+				<td><a href='/controller/board/get?bno=<c:out value="${board.bno}"/>'> <c:out value="${board.title}" /></a></td>
 				<td><c:out value="${board.writer}" /></td>
 				<td><fmt:formatDate pattern="yyyy-MM-dd" value="${ board.regdate}" /></td>
 				<td><fmt:formatDate pattern="yyyy-MM-dd" value="${ board.updateDate}" /></td>
